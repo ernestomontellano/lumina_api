@@ -219,6 +219,7 @@ class ImageneController extends Controller
                                 'codigo' => $request['codigo'],
                                 'imagen' => $rutaarchivo,
                                 'descripcion' => $request['descripcion'],
+                                'fotografos_id' => $request['fotografos_id'],
                                 'soportes_id' => $request['soportes_id']
                             ]
                         );
@@ -283,6 +284,7 @@ class ImageneController extends Controller
                             'codigo' => $request['codigo'],
                             'imagen' => $rutaarchivo,
                             'descripcion' => $request['descripcion'],
+                            'fotografos_id' => $request['fotografos_id'],
                             'soportes_id' => $request['soportes_id']
                         ]
                     );

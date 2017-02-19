@@ -17,6 +17,7 @@ class ImagenesTableSeeder extends Seeder
                 'codigo' => '',
                 'imagen' => '',
                 'descripcion' => '',
+                'fotografos_id' => 0,
                 'soportes_id' => 0,
                 'created_at' => $fechahora,
                 'updated_at' => $fechahora

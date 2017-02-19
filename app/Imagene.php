@@ -13,6 +13,7 @@ class Imagene extends Model
         'codigo',
         'imagen',
         'descripcion',
+        'fotografos_id',
         'soportes_id'
     ];
     protected $hidden = [];

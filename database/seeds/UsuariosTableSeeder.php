@@ -22,7 +22,7 @@ class UsuariosTableSeeder extends Seeder
             ]
         );
         foreach ($regs as $reg) {
-            DB::table('accionistas')->insert($reg);
+            DB::table('usuarios')->insert($reg);
         }
     }
 

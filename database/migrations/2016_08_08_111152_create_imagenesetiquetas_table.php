@@ -12,7 +12,7 @@ class CreateImagenesetiquetasTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('imagenes_id')->unsigned();
             $table->foreign('imagenes_id')->references('id')->on('imagenes')->onDelete('cascade');
-            $table->foreign('etiquetas_id')->unsigned();
+            $table->bigInteger('etiquetas_id')->unsigned();
             $table->foreign('etiquetas_id')->references('id')->on('etiquetas')->onUpdate('cascade');
             $table->timestamps();
         });
