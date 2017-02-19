@@ -1,0 +1,24 @@
+<div class="row panel panel-primary">
+    <div class="panel-heading">
+        <span><a class="btn-sm btn-default" href="http://[[HOST]]/#/catalogo" role="button">CATÁLOGO</a></span>
+        <span class="breadc">></span>
+        <span><a class="btn-sm btn-default mayusculas" href="http://[[HOST]]/#/listar/{{tablaActual}}" role="button">{{tablaActual}}</a></span>
+        <span class="breadc">></span>
+        <span class="titulop mayusculas">AGREGAR</span>
+        <span class="usernames" ng-if="logued()">Usuario: {{currentUser.email}}</span>
+    </div>
+    <div class="panel-body col-sm-12 catalogo">
+        <div class="col-sm-4 col-sm-offset-4">
+            <form id="addData" name="addData">
+                <div ng-repeat="item in agregar.datos">
+                    <div class="form-group">
+                        <label class="mayusculas" for="{{item}}">{{item}}:</label>
+                        <input type="text" class="form-control" id="{{item}}" name="{{item}}" placeholder="{{item}}" value="">
+                    </div>
+                </div>
+                <a class="btn-sm btn-danger" href="http://[[HOST]]/#/listar/{{tablaActual}}" role="button">CANCELAR</a>
+                <a class="btn-sm btn-success" href ng-click="agregar.almacenar()">ALMACENAR</a>
+            </form>
+        </div>
+    </div>
+</div>

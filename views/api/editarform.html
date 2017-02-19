@@ -1,0 +1,27 @@
+<div class="row panel panel-primary">
+    <div class="panel-heading">
+        <span><a class="btn-sm btn-default" href="http://[[HOST]]/#/catalogo" role="button">CATÁLOGO</a></span>
+        <span class="breadc">></span>
+        <span><a class="btn-sm btn-default mayusculas" href="http://[[HOST]]/#/listar/{{tablaActual}}" role="button">{{tablaActual}}</a></span>
+        <span class="breadc">></span>
+        <span class="titulop mayusculas">EDITAR</span>
+        <span class="usernames" ng-if="logued()">Usuario: {{currentUser.email}}</span>
+    </div>
+    <div class="bt-agregar col-sm-12" ng-if="tablaActual == 'usuarios'">
+        <a class="btn-sm btn-primary" role="button" href="/#/cambiar/{{tablaActual}}/{{currentUser.id}}">Cambiar Contraseña</a>
+    </div>
+    <div class="panel-body col-sm-12 catalogo">
+        <div class="col-sm-4 col-sm-offset-4">
+            <form id="editData" name="editData">
+                <div ng-repeat="item in editar.datos">
+                    <div class="form-group" ng-repeat="item2 in item" ng-if="item2[0] != 'id' && item2[0] != 'password'">
+                        <label class="mayusculas" for="{{item2[0]}}">{{item2[0]}}:</label>
+                        <input type="text" class="form-control" id="{{item2[0]}}" name="{{item2[0]}}" placeholder="{{item2[0]}}" value="{{item2[1]}}">
+                    </div>
+                </div>
+                <a class="btn-sm btn-danger" href="http://[[HOST]]/#/listar/{{tablaActual}}" role="button">CANCELAR</a>
+                <a class="btn-sm btn-success" href ng-click="editar.actualizar()">ALMACENAR</a>
+            </form>
+        </div>
+    </div>
+</div>

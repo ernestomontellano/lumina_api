@@ -1,0 +1,22 @@
+<div class="row panel panel-primary">
+    <div class="panel-heading">
+        <span><a class="btn-sm btn-default" href="http://[[HOST]]/#/catalogo" role="button">CATÁLOGO</a></span>
+        <span class="breadc">></span>
+        <span><a class="btn-sm btn-default mayusculas" href="http://[[HOST]]/#/listar/{{tablaActual}}" role="button">{{tablaActual}}</a></span>
+        <span class="breadc">></span>
+        <span class="titulop mayusculas">CAMBIAR CONTRASEÑA</span>
+        <span class="usernames" ng-if="logued()">Usuario: {{currentUser.email}}</span>
+    </div>
+    <div class="panel-body col-sm-12 catalogo">
+        <div class="col-sm-4 col-sm-offset-4">
+            <form id="cambData" name="cambData">
+                <div class="form-group">
+                    <label class="mayusculas" for="password">NUEVA CONTRASEÑA:</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="password" value="">
+                </div>
+                <a class="btn-sm btn-danger" href="http://[[HOST]]/#/listar/{{tablaActual}}" role="button">CANCELAR</a>
+                <a class="btn-sm btn-success" href ng-click="cambiar.cambiar()">ACTUALIZAR CONTRASEÑA</a>
+            </form>
+        </div>
+    </div>
+</div>

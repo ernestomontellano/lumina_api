@@ -1,0 +1,133 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+#alertas {
+    position: relative;
+    top: 70px;
+    height: auto;
+}
+.paginatitulo {
+    color: #FFFFFF;
+}
+.menus {
+    list-style: none;
+    float: right;
+}
+.opcion {
+    display: inline;
+}
+.bt-agregar {
+    margin-top: 20px;
+}
+.catalogo {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.usernames {
+    float: right;
+}
+.cabecera {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+.cuerpo {
+    z-index: 1;
+    margin-top: 100px;
+}
+.pie {
+    width: 100%;
+    position: fixed;
+    padding-top: 10px;
+    bottom: 0;
+    text-align: center;
+    font-size: 0.9em;
+    z-index: 2;
+}
+.pie a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.panel {
+    margin-bottom: 70px;
+}
+.ruta,
+.accion,
+.nombre {
+    font-size: 90%;
+}
+h3 {
+    color: #333333;
+    font-size: 1.1em;
+    font-weight: bold;
+    font-style: italic;
+}
+h4 {
+    color: #666666;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+.filacabeza {
+    border-bottom: 1px solid #cccccc;
+}
+.fila {
+    border-bottom: 1px dotted #dddddd;
+    padding-top: 9px;
+    padding-bottom: 2px;
+}
+.tabla {
+    width: 100%;
+}
+.tablacabecera {
+    border-bottom: 1px solid #cccccc;
+}
+.tablacuerpo {
+    border-bottom: 1px dotted #dddddd;
+}
+.breadc {
+    margin: 0 10px;
+}
+.mayusculas {
+    text-transform: uppercase;
+}
+.etiqueta {
+    font-weight: bold;
+}
+.pregunta {
+    border-bottom: 1px solid #cccccc;
+    font-weight: bold;
+    text-align: center;
+}
+.loader {
+    position: absolute;
+    z-index: 9998;
+    margin: 0; padding: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity:0.8;
+}
+#loading-bar .bar {
+    background: #FFFFFF;
+}
+#loading-bar-spinner .spinner-icon {
+    border-top-color:  #FFFFFF;
+    border-left-color: #FFFFFF;
+}
+#loading-bar .peg {
+    -moz-box-shadow: #FFFFFF 1px 0 6px 1px;
+    -ms-box-shadow: #FFFFFF 1px 0 6px 1px;
+    -webkit-box-shadow: #FFFFFF 1px 0 6px 1px;
+    box-shadow: #FFFFFF 1px 0 6px 1px;
+}
+.olvido {
+    float: right;
+}
+.subbuttons {
+    margin-top: 15px;
+}

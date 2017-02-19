@@ -1,0 +1,30 @@
+<div class="row panel panel-primary">
+    <div class="panel-heading">
+        <span><a class="btn-sm btn-default" href="http://[[HOST]]/#/catalogo" role="button">CATÁLOGO</a></span>
+        <span class="breadc">></span>
+        <span class="titulop mayusculas">{{tablaActual}}</span>
+        <span class="usernames" ng-if="logued()">Usuario: {{currentUser.email}}</span>
+    </div>
+    <div class="bt-agregar col-sm-12">
+        <a class="btn-sm btn-primary" role="button" href="/#/agregar/{{tablaActual}}">Agregar</a>
+    </div>
+    <div class="panel-body col-sm-12 catalogo">
+        <table class="tabla">
+            <thead>
+                <tr class="tablacabecera mayusculas">
+                    <th ng-repeat="item in listar.cabecera" ng-if="item != 'password'">
+                        <h4>{{item}}</h4>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="tablacuerpo" ng-repeat="item3 in listar.datos track by $index">
+                    <td ng-repeat="item2 in item3 track by $index">
+                        <span ng-if="!$last" ng-bind="item2"></span>
+                        <span ng-if="$last" render-html="item2"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
