@@ -46,16 +46,7 @@ php artisan key:generate
 composer install
 ```
 <br />
-7. Instalar las dependencias de Node:
-<br />
-```
-cd public
-```
-```
-npm install
-```
-<br />
-8. Generar la llave de encriptación para los tokens de seguridad:
+7. Generar la llave de encriptación para los tokens de seguridad:
 <br />
 ```
 php artisan jwt:generate
