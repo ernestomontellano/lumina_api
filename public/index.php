@@ -1,15 +1,15 @@
 <?php
 
-switch ($_SERVER['HTTP_ORIGIN']) {
-    case 'https://www.fiedesarrollo.com':
-    case 'https://fieadmin.fiedesarrollo.com':
-        header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
-        break;
-    default:
-        header('Access-Control-Allow-Origin: https://www.fiedesarrollo.com');
-        break;
-}
-//header('Access-Control-Allow-Origin: *');
+//switch ($_SERVER['HTTP_ORIGIN']) {
+//    case 'https://www.fiedesarrollo.com':
+//    case 'https://fieadmin.fiedesarrollo.com':
+//        header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
+//        break;
+//    default:
+//        header('Access-Control-Allow-Origin: https://www.fiedesarrollo.com');
+//        break;
+//}
+header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: accept, authorization, X-Requested-With, Content-Type, Content-Range, Content-Disposition, Content-Description');
 /**
