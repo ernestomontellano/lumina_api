@@ -22,6 +22,45 @@ class ImagenesetiquetaController extends Controller
     {
         try {
             $queryresult = Imagenesetiqueta::get();
+            $adj_imagenes = false;
+            if ((isset($request['imagenes'])) && ($request['imagenes'] == 'true')) {
+                $ImageneController = new ImageneController;
+                $adj_imagenes = true;
+                $adj_tamanhos = 'false';
+                if ((isset($request['tamanhos'])) && ($request['tamanhos'] == 'true')) {
+                    $adj_tamanhos = 'true';
+                }
+                $adj_etiquetas = 'false';
+                if ((isset($request['etiquetas'])) && ($request['etiquetas'] == 'true')) {
+                    $adj_etiquetas = 'true';
+                }
+                $adj_fotografos = 'false';
+                if ((isset($request['fotografos'])) && ($request['fotografos'] == 'true')) {
+                    $adj_fotografos = 'true';
+                    $adj_soporte = 'false';
+                    if ((isset($request['soporte'])) && ($request['soporte'] == 'true')) {
+                        $adj_soporte = 'true';
+                    }
+                }
+            }
+            if ($adj_imagenes) {
+                for ($r = 0; $r < count($queryresult); $r++) {
+                    if ($adj_imagenes) {
+                        $imagenes_id = $queryresult[$r]['imagenes_id'];
+                        $params2 = array(
+                            'comparaciones' => array(
+                                array(
+                                    'campo' => 'id',
+                                    'operador' => 'igual',
+                                    'dato' => $imagenes_id
+                                )
+                            ),
+                            'orden' => array()
+                        );
+                        $queryresult[$r]['imagenes'] = $ImageneController->filtrarinterno($params2['comparaciones'], $params2['orden'], $adj_tamanhos, $adj_etiquetas, $adj_fotografos, $adj_soporte);
+                    }
+                }
+            }
             return response()->json(['respuesta' => true, 'resultado' => $queryresult]);
         } catch (QueryException $e) {
             return response()->json(['respuesta' => false, 'resultado' => $e->errorInfo]);
@@ -31,8 +70,46 @@ class ImagenesetiquetaController extends Controller
     public function visualizar(Request $request, $id)
     {
         try {
-            $queryresult = Imagenesetiqueta::where('id', $id)
-                ->get();
+            $queryresult = Imagenesetiqueta::where('id', $id)->get();
+            $adj_imagenes = false;
+            if ((isset($request['imagenes'])) && ($request['imagenes'] == 'true')) {
+                $ImageneController = new ImageneController;
+                $adj_imagenes = true;
+                $adj_tamanhos = 'false';
+                if ((isset($request['tamanhos'])) && ($request['tamanhos'] == 'true')) {
+                    $adj_tamanhos = 'true';
+                }
+                $adj_etiquetas = 'false';
+                if ((isset($request['etiquetas'])) && ($request['etiquetas'] == 'true')) {
+                    $adj_etiquetas = 'true';
+                }
+                $adj_fotografos = 'false';
+                if ((isset($request['fotografos'])) && ($request['fotografos'] == 'true')) {
+                    $adj_fotografos = 'true';
+                    $adj_soporte = 'false';
+                    if ((isset($request['soporte'])) && ($request['soporte'] == 'true')) {
+                        $adj_soporte = 'true';
+                    }
+                }
+            }
+            if ($adj_imagenes) {
+                for ($r = 0; $r < count($queryresult); $r++) {
+                    if ($adj_imagenes) {
+                        $imagenes_id = $queryresult[$r]['imagenes_id'];
+                        $params2 = array(
+                            'comparaciones' => array(
+                                array(
+                                    'campo' => 'id',
+                                    'operador' => 'igual',
+                                    'dato' => $imagenes_id
+                                )
+                            ),
+                            'orden' => array()
+                        );
+                        $queryresult[$r]['imagenes'] = $ImageneController->filtrarinterno($params2['comparaciones'], $params2['orden'], $adj_tamanhos, $adj_etiquetas, $adj_fotografos, $adj_soporte);
+                    }
+                }
+            }
             return response()->json(['respuesta' => true, 'resultado' => $queryresult]);
         } catch (QueryException $e) {
             return response()->json(['respuesta' => false, 'resultado' => $e->errorInfo]);
@@ -113,13 +190,52 @@ class ImagenesetiquetaController extends Controller
         }
         try {
             $queryresult = $queryresult->paginate($per_page);
+            $adj_imagenes = false;
+            if ((isset($request['imagenes'])) && ($request['imagenes'] == 'true')) {
+                $ImageneController = new ImageneController;
+                $adj_imagenes = true;
+                $adj_tamanhos = 'false';
+                if ((isset($request['tamanhos'])) && ($request['tamanhos'] == 'true')) {
+                    $adj_tamanhos = 'true';
+                }
+                $adj_etiquetas = 'false';
+                if ((isset($request['etiquetas'])) && ($request['etiquetas'] == 'true')) {
+                    $adj_etiquetas = 'true';
+                }
+                $adj_fotografos = 'false';
+                if ((isset($request['fotografos'])) && ($request['fotografos'] == 'true')) {
+                    $adj_fotografos = 'true';
+                    $adj_soporte = 'false';
+                    if ((isset($request['soporte'])) && ($request['soporte'] == 'true')) {
+                        $adj_soporte = 'true';
+                    }
+                }
+            }
+            if ($adj_imagenes) {
+                for ($r = 0; $r < count($queryresult); $r++) {
+                    if ($adj_imagenes) {
+                        $imagenes_id = $queryresult[$r]->imagenes_id;
+                        $params2 = array(
+                            'comparaciones' => array(
+                                array(
+                                    'campo' => 'id',
+                                    'operador' => 'igual',
+                                    'dato' => $imagenes_id
+                                )
+                            ),
+                            'orden' => array()
+                        );
+                        $queryresult[$r]->imagenes = $ImageneController->filtrarinterno($params2['comparaciones'], $params2['orden'], $adj_tamanhos, $adj_etiquetas, $adj_fotografos, $adj_soporte);
+                    }
+                }
+            }
             return response()->json(['respuesta' => true, 'resultado' => $queryresult]);
         } catch (QueryException $e) {
             return response()->json(['respuesta' => false, 'resultado' => $e->errorInfo]);
         }
     }
 
-    public function filtrarinterno($comparaciones = array(), $orden = array())
+    public function filtrarinterno($comparaciones = array(), $orden = array(), $imagenes = 'false', $tamanhos = 'false', $etiquetas = 'false', $fotografos = 'false', $soporte = 'false')
     {
         $tabla = Imagenesetiqueta::tabla();
         $queryresult = DB::table($tabla);
@@ -186,6 +302,45 @@ class ImagenesetiquetaController extends Controller
         }
         try {
             $queryresult = $queryresult->get();
+            $adj_imagenes = false;
+            if ($imagenes == 'true') {
+                $ImageneController = new ImageneController;
+                $adj_imagenes = true;
+                $adj_tamanhos = 'false';
+                if ($tamanhos == 'true') {
+                    $adj_tamanhos = 'true';
+                }
+                $adj_etiquetas = 'false';
+                if ($etiquetas == 'true') {
+                    $adj_etiquetas = 'true';
+                }
+                $adj_fotografos = 'false';
+                if ($fotografos == 'true') {
+                    $adj_fotografos = 'true';
+                    $adj_soporte = 'false';
+                    if ($soporte == 'true') {
+                        $adj_soporte = 'true';
+                    }
+                }
+            }
+            if ($adj_imagenes) {
+                for ($r = 0; $r < count($queryresult); $r++) {
+                    if ($adj_imagenes) {
+                        $imagenes_id = $queryresult[$r]->imagenes_id;
+                        $params2 = array(
+                            'comparaciones' => array(
+                                array(
+                                    'campo' => 'id',
+                                    'operador' => 'igual',
+                                    'dato' => $imagenes_id
+                                )
+                            ),
+                            'orden' => array()
+                        );
+                        $queryresult[$r]->imagenes = $ImageneController->filtrarinterno($params2['comparaciones'], $params2['orden'], $adj_tamanhos, $adj_etiquetas, $adj_fotografos, $adj_soporte);
+                    }
+                }
+            }
             return $queryresult;
         } catch (QueryException $e) {
             return $e->errorInfo;

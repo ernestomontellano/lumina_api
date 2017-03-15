@@ -10,9 +10,9 @@ class Fotografo extends Model
     protected $table = 'fotografos';
     protected $fillable = [
         'nombre',
-        'email',
-        'telefono',
-        'biografia'
+        'biografia',
+        'imagen',
+        'soportes_id'
     ];
     protected $hidden = [];
 

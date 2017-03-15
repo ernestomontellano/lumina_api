@@ -13,7 +13,13 @@ class TamanhosTableSeeder extends Seeder
         $regs = array(
             [
                 'id' => 1,
-                'tamanho' => '',
+                'tamanho' => '40 x 30m',
+                'created_at' => $fechahora,
+                'updated_at' => $fechahora
+            ],
+            [
+                'id' => 2,
+                'tamanho' => '70 x 50m',
                 'created_at' => $fechahora,
                 'updated_at' => $fechahora
             ]

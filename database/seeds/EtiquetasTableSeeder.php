@@ -13,7 +13,13 @@ class EtiquetasTableSeeder extends Seeder
         $regs = array(
             [
                 'id' => 1,
-                'etiqueta' => '',
+                'etiqueta' => 'paisaje',
+                'created_at' => $fechahora,
+                'updated_at' => $fechahora
+            ],
+            [
+                'id' => 2,
+                'etiqueta' => 'retrato',
                 'created_at' => $fechahora,
                 'updated_at' => $fechahora
             ]

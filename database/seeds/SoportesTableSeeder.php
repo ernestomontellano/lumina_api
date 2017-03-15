@@ -13,7 +13,7 @@ class SoportesTableSeeder extends Seeder
         $regs = array(
             [
                 'id' => 1,
-                'soporte' => '',
+                'soporte' => 'IMPRESIÓN EN PAPEL FOTOGRÁFICO LUSTER DE 260 G',
                 'created_at' => $fechahora,
                 'updated_at' => $fechahora
             ]

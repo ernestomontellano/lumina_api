@@ -11,9 +11,10 @@ class CreateFotografosTable extends Migration
         Schema::create('fotografos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre', 250);
-            $table->text('email');
-            $table->text('telefono');
             $table->text('biografia');
+            $table->text('imagen');
+            $table->bigInteger('soportes_id')->unsigned();
+            $table->foreign('soportes_id')->references('id')->on('soportes')->onDelete('cascade');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();

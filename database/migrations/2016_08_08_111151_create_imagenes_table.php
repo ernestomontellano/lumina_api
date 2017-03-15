@@ -16,8 +16,6 @@ class CreateImagenesTable extends Migration
             $table->text('descripcion');
             $table->bigInteger('fotografos_id')->unsigned();
             $table->foreign('fotografos_id')->references('id')->on('fotografos')->onUpdate('cascade');
-            $table->bigInteger('soportes_id')->unsigned();
-            $table->foreign('soportes_id')->references('id')->on('soportes')->onUpdate('cascade');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
